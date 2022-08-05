@@ -11,7 +11,7 @@ module.exports = {
 function index(req, res) {
 	//list out the flights
     Flight.find({}, function(err, allflightsInDatabase) {
-		console,log(allflightsInDatabase,'<- all the flights');
+		// console,log(allflightsInDatabase,'<- all the flights');
 		if(err){
 			res.send('You have an error trying to find the flights, check the terminal')
 		}
@@ -35,7 +35,7 @@ function create(req, res){
 	Flight.create(req.body, function(err, flightDocumentCreatedInTheDatabase){
 		if(err){
 			console.log(err, ' <- err in the Flight create controller')
-			return res.render('flights/new.ejs')
+			return res.render('flights/new')
 		}
 
 		console.log(flightDocumentCreatedInTheDatabase, ' <- flight created in db')

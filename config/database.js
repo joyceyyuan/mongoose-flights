@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 
 //flights is the name of the db, it will either connect to a flights database in mongodb
 // or it will create a flights database in mongodb
-mongoose.connect('mongodb://localhostflights');
+mongoose.connect('mongodb://localhost/flights');
 
 
 // this will fire when mongoose (our express app)
