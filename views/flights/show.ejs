@@ -1,0 +1,35 @@
+<%- include('../partials/header') %>
+
+<section id="details-page">
+    <div>Airports: </div>
+    <div><%= flight.airport %></div>
+    <div>Airline: </div>
+    <div><%= flight.airline %></div>
+    <div>Flight Number: </div>
+    <div><%= flight.flightNo %></div>
+    <div>Departure Date/Time: </div>
+    <div><%= flight.departs %></div>
+</section>
+
+<br><br><h2>Destinations</h2>
+
+<% if (flight.destinations.length) { %>
+    <table>
+        <thead>
+            <th>Airport</th>
+            <th>Arrival Date/Time</th>
+        </thead>
+        <tbody>
+            <% flight.destinations.forEach(function(d) { %>
+                <tr>
+                    <td><%= d.airport %></td>
+                    <td><%= d.arrival %></td>
+                </tr>
+            <% }) %> 
+        </tbody>
+    </table>
+<% } else { %>
+    No destinations yet
+<% } %> 
+
+<%- include('../partials/footer') %>
