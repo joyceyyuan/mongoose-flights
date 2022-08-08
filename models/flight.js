@@ -6,7 +6,7 @@ const mongoose = require('mongoose');
 
 // Embed the destinations in the flights
 
-const destinationSchema = new Schema({
+const destinationSchema = new mongoose.Schema({
     airport:{
     type: String,
     enum: ['AUS', 'DFW', 'DEN', 'LAX', 'SAN']
