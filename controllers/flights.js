@@ -30,8 +30,8 @@ function index(req, res) {
 		//we found all the flights
         res.render('flights/index', { 
 			flights: allflightsInDatabase
-		});
-    });
+		})
+    }).sort({departs: 'asc'});
 }
 
 
