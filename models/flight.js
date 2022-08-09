@@ -1,12 +1,31 @@
 const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 
 // Creates the schema, which defines, 
 // what the documents (objects) in a mongodb collection (movies) 
 // will all look like
 
+
+const ticketSchema = new Schema({
+    seat: {
+        type: String,
+        match: /[A-F][1-9]\d?/
+    },
+    price: {
+        type: Number,
+        min: 0
+    },
+    flight: {
+        type: Schema.Types.ObjectId,
+        ref: 'Flight'
+    }
+});
+
+
+
 // Embed the destinations in the flights
 
-const destinationSchema = new mongoose.Schema({
+const destinationSchema = new Schema({
     airport: {
     type: String,
     enum: ['AUS', 'DFW', 'DEN', 'LAX', 'SAN']
@@ -39,7 +58,8 @@ const flightSchema = new mongoose.Schema({
         return departsDate;
     }
     },
-    destinations: [destinationSchema]
+    destinations: [destinationSchema],
+    ticket: [ticketSchema]
 });
 
 // Compile the schema into a model and export it
