@@ -1,8 +1,114 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+* {
+  box-sizing: border-box;
+  font-family: sans-serif;
+  color: #424748;
 }
 
-a {
-  color: #00B7FF;
+body {
+  height: 100vh;
+  font: 14px;
+  display: grid;
+  grid-template-rows: 50px 1fr;
+  grid-template-areas: 
+    "nav"
+    "main"
+}
+
+body > nav {
+  background-color: #6292d0;
+  grid-area: nav;
+  display: flex;
+  justify-content: flex-center;
+  align-items: center;
+}
+body >nav >a {
+  color: white;
+  font: 25px;
+}
+
+
+body > main {
+  grid-area: main;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #ccd8e8;
+}
+
+body > main h1:first-child {
+  margin-bottom: 45px;
+}
+
+nav > a {
+  margin: 20px;
+  text-decoration: none;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+nav > a:hover {
+  color: slategray;
+  background-color:white;
+}
+
+table {
+  font-size: 20px;
+}
+
+table thead th {
+  padding: 5px;
+  border-bottom: 2px solid #424748;
+}
+
+table td {
+  padding: 10px;
+  text-align: center;
+}
+
+
+#detail {
+  border-radius: 6px;
+  background-color: #b6c0de;
+  padding: 4px;
+  text-decoration: none;
+  font-size: 15px;
+}
+
+#detail:hover {
+  color: slategray;
+  background-color: white;
+}
+
+
+#new-form *, #add-destination-form * {
+  font-size: 20px;
+}
+
+#add-destination-form {
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-gap: 1rem;
+}
+
+#show-page {
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-gap: 10px;
+}
+
+#show-page div:nth-child(odd) {
+  font-weight: bold;
+}
+
+
+#add-destination-form {
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-gap: 10px;
+  margin-bottom: 1em;
+}
+
+#add-destination-form input[type="submit"]  {
+  width: 10em;
+  margin-bottom: 2rem;
 }
