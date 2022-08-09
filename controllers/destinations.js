@@ -18,5 +18,5 @@ function create(req, res) {
     flightDocument.save(function(err) {
         res.redirect(`/flights/${req.params.id}`);
     });
-});
+}).sort({arrival: 'asc'});
 }
