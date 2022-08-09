@@ -3,13 +3,22 @@ const Flight = require('../models/flight')
 // on the flights collection in our mongodb database
 
 module.exports = {
-    index,
+    index, 
     new: newFlight,
-    create
+    create,
+	show
 }
 
+function show(req, res) {
+	Flight.findById(req.params.id, function(err, flightDocument) {
+	console.log(flightDocument, " <- show page")
+	res.render('flights/show', { title: 'Flight Detail', flight: flightDocument});
+	});
+}
+
+
+//list all the flights
 function index(req, res) {
-	//list out the flights
     Flight.find({}, function(err, allflightsInDatabase) {
 		// console,log(allflightsInDatabase,'<- all the flights');
 		if(err){
@@ -24,8 +33,13 @@ function index(req, res) {
 		});
     });
 }
+
+
 function newFlight(req, res) {
-    res.render('flights/new');
+	const d = new Date();
+	const dt = new Date(d.setFullYear(d.getFullYear() + 1));
+	const departsDate = dt.toISOString().slice(0, 16);
+	res.render('flights/new', {departsDate});
 }
 
 function create(req, res){
