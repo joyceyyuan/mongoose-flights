@@ -20,7 +20,7 @@ function show(req, res) {
 //list all the flights
 function index(req, res) {
     Flight.find({}, function(err, allflightsInDatabase) {
-		console,log(allflightsInDatabase,'<- all the flights');
+		console.log(allflightsInDatabase,'<- all the flights');
 		if(err){
 			res.send('You have an error trying to find the flights, check the terminal')
 		}
