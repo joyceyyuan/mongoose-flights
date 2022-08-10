@@ -14,15 +14,15 @@
                 <tr>
                     <% if ( f.departs && f.departs < new Date()) { %>
                         <td style="color: red"><%= f.airline %></td>
-                    <td style="color: red"><%= f.airport %></td>
-                    <td style="color: red"><%= f.flightNo %></td>
+                        <td style="color: red"><%= f.airport %></td>
+                        <td style="color: red"><%= f.flightNo %></td>
                         <td style="color: red"><%= f.departs %></td>
-                        <% } else { %> 
-                            <td><%= f.airline %></td>
-                            <td><%= f.airport %></td>
-                            <td><%= f.flightNo %></td>
-                            <td><%= f.departs %></td>
-                        <% } %>
+                    <% } else { %> 
+                        <td><%= f.airline %></td>
+                        <td><%= f.airport %></td>
+                        <td><%= f.flightNo %></td>
+                        <td><%= f.departs %></td>
+                    <% } %>
                     <td><a id='detail' href="/flights/<%= f._id %>">Details</a></td>
                 </tr>
             <% }); %>
