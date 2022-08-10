@@ -6,8 +6,9 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 //importing the flights router
-const flightsRouter = require('./routes/flights')
-const destinationsRouter = require ('./routes/destinations')
+const flightsRouter = require('./routes/flights');
+const destinationsRouter = require ('./routes/destinations');
+const ticketsRouter = require ('./routes/tickets');
 
 // require the database file to establish the connection with the database file!
 require('./config/database')
@@ -29,6 +30,7 @@ app.use('/', indexRouter);
 app.use('/flights', flightsRouter);
 app.use('/', destinationsRouter)// <- nested resources we mount a /
 // for flexibility purposes with the nested routes
+app.use('/', ticketsRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
