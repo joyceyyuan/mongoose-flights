@@ -6,23 +6,6 @@ const Schema = mongoose.Schema;
 // will all look like
 
 
-const ticketSchema = new Schema({
-    seat: {
-        type: String,
-        match: /[A-F][1-9]\d?/
-    },
-    price: {
-        type: Number,
-        min: 0
-    },
-    flight: {
-        type: Schema.Types.ObjectId,
-        ref: 'Flight'
-    }
-});
-
-
-
 // Embed the destinations in the flights
 
 const destinationSchema = new Schema({
@@ -59,7 +42,6 @@ const flightSchema = new mongoose.Schema({
     }
     },
     destinations: [destinationSchema],
-    ticket: [ticketSchema]
 });
 
 // Compile the schema into a model and export it
