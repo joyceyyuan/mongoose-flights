@@ -1,19 +1,29 @@
 const Flight = require('../models/flight');
+const Ticket = require('../models/ticket');
+
 
 module.exports = {
-    createTicket,
+    new: newTicket,
+    create
 };
 
-function createTicket(req, res) {
-    // First we have to find the flight
-    Flight.findById(req.params.id, function (err, flightDocument) {
-    // then we need to add ticket (aka req.body) to that flights ticket array
-    console.log(flightDocument, " <- flightDocument");
-    flightDocument.tickets.push(req.body); 
-    // changing the document that we found from the database,
-    //save the document
-    flightDocument.save(function(err) {
-        res.redirect(`/flights/${req.params.id}`);
-        });
-    })
+
+function newTicket(req, res) {
+    Flight.findById(req.params.id, function(err, flight) {
+        if(err){
+            console.log(err, ' <- error in new ticket controller');
+        }
+        res.render(`tickets/new`, {flight});
+    });
 }
+
+function create(req, res) {
+    //add flight property on req.body object 
+    req.body.flight = req.params.id
+    Ticket.findById(req.body, function (err, ticket) {
+        if(err){
+            console.log(err, ' <- error in the Ticket create controller');
+        }
+        res.redirect(`/flights/${req.params.id}`);
+        })
+    }
