@@ -6,6 +6,7 @@
 
 body {
   height: 100vh;
+  margin:0;
   font: 14px;
   display: grid;
   grid-template-rows: 50px 1fr;
@@ -52,21 +53,20 @@ nav > a:hover {
 }
 
 table {
-  font-size: 20px;
+  font-size: 15px;
 }
 
 table thead th {
-  padding: 5px;
   border-bottom: 2px solid #424748;
 }
 
 table td {
-  padding: 10px;
+  padding: 5px;
   text-align: center;
 }
 
 
-#detail {
+#detail,#newticket {
   border-radius: 6px;
   background-color: #b6c0de;
   padding: 4px;
@@ -75,6 +75,11 @@ table td {
 }
 
 #detail:hover {
+  color: slategray;
+  background-color: white;
+}
+
+#newticket:hover {
   color: slategray;
   background-color: white;
 }

@@ -48,43 +48,25 @@
             <h5>No destinations yet </h5>
             <% } %> 
 
-<br><br><h3>Tickets</h3>
-<form id="add-ticket-form"  action="/flights/<%= flight._id %>/tickets" method="POST">
-    <label>Seat:
-        <input name="seat" required pattern="[A-F][1-9]\d?">
-    </label><br>
-    <label>Price:
-        <input type="number" name="price" min="0">
-    </label><br>
-    <label>Flight:
-        <select name="ticketId">
-            <%- tickets.map(t => 
-                `<option value="${t._id}">${t.name}</option>`
-            ).join('') %>
-        </select>
-    </label><br>
-    <input type="submit" value="Add Ticket">
-</form>
-
-<% if (flight.tickets.length) { %>
+<br><h3>Tickets</h3>
+<% if (tickets.length) { %>
     <table>
         <thead>
             <th>Seat</th>
-            <th>Price</th>
-            <th>Flight</th>
+            <th>Price($)</th>
         </thead>
         <tbody>
-            <% flight.tickets.forEach(function(t) { %>
+            <% tickets.forEach(function(t) { %>
                 <tr>
                     <td><%= t.seat %></td>
                     <td><%= t.price%></td>
-                    <td><%= t._id%></td>
                 </tr>
             <% }) %> 
         </tbody>
     </table>
             <% } else { %>
-            <h5>No destinations yet </h5>
+            <h5>No ticket yet </h5>
             <% } %> 
+<br><a id='newticket' href="/flights/<%= flight._id %>/tickets/new">New Ticket</a>
 
 <%- include('../partials/footer') %>

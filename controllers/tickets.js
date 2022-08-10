@@ -15,15 +15,15 @@ function newTicket(req, res) {
         }
         res.render(`tickets/new`, {flight});
     });
-}
+};
 
 function create(req, res) {
     //add flight property on req.body object 
-    req.body.flight = req.params.id
-    Ticket.findById(req.body, function (err, ticket) {
+    req.body.flight = req.params.id;
+    Ticket.create(req.body, function (err, ticket) {
         if(err){
             console.log(err, ' <- error in the Ticket create controller');
         }
         res.redirect(`/flights/${req.params.id}`);
-        })
-    }
+        });
+};

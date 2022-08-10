@@ -14,9 +14,9 @@ function show(req, res) {
 	//To show a list of tickets that belong to a flight,
 	// need to make a separate query (inside of the callback of the Flight.findById call)
 	// to retrieve the flights 
-	Flight.findById(req.params.id, function(err, flightDocument) {
+	Flight.findById(req.params.id, function(err, flightDocument){
 		console.log(flightDocument, " <- show page");
-		Ticket.find({flight: flightDocument._id}, function(err, tickets) {
+		Ticket.find({flight: flightDocument._id}, function(err, tickets){
 			console.log(tickets,"<-tickets");
 			res.render('flights/show', { 
 				title: 'Flight Detail', 
