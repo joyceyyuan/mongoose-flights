@@ -1,4 +1,5 @@
 const Flight = require('../models/flight')
+const Ticket = require('../models/ticket');
 // import our Model object which can perform crud operations
 // on the flights collection in our mongodb database
 
